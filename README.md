@@ -31,9 +31,17 @@ Then open the project through Unity Hub.
 
 ## Roadmap
 
-* [ ] Set up the initial project structure
+* [x] Set up the initial project structure
 * [ ] Implement the core gameplay loop
-* [ ] ...
+* [ ] Implement core game systems
+* [ ] Build the first playable level
+* [ ] Implement UI and menus
+* [ ] Add multilingual support
+* [ ] Add visual and audio feedback
+* [ ] Expand game content
+* [ ] Improve game stability and controls
+* [ ] Conduct play testing
+* [ ] Final polish and release preparation
 
 ## License
 
