@@ -4,6 +4,7 @@ using UnityEngine;
 namespace Core
 {
     [RequireComponent(typeof(Rigidbody2D))]
+    [RequireComponent(typeof(GroundDetector))]
     public class PlayerMovement : MonoBehaviour
     {
         [SerializeField] private Vector2EventSO moveInput;
@@ -13,12 +14,13 @@ namespace Core
         [SerializeField] private float jumpForce = 1f;
 
         private Rigidbody2D _rb;
-        
+        private GroundDetector _groundDetector;
         private float _moveDirection;
         
         private void Awake()
         {
             _rb = GetComponent<Rigidbody2D>();
+            _groundDetector = GetComponent<GroundDetector>();
         }
         
         private void OnEnable()
@@ -41,7 +43,8 @@ namespace Core
         
         private void Jump()
         {
-            _rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            if (_groundDetector.IsGrounded)
+                _rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
 
         private void Move(Vector2 direction)
