@@ -53,37 +53,44 @@ namespace Core
 
         public void OnAttack(InputAction.CallbackContext context)
         {
-            attackInput?.Invoke();
+            if (context.performed)
+                attackInput?.Invoke();
         }
 
         public void OnInteract(InputAction.CallbackContext context)
         {
-            interactInput?.Invoke();
+            if (context.performed)
+                interactInput?.Invoke();
         }
 
         public void OnCrouch(InputAction.CallbackContext context)
         {
-            crouchInput?.Invoke();
+            if (context.performed)
+                crouchInput?.Invoke();
         }
 
         public void OnJump(InputAction.CallbackContext context)
         {
-            jumpInput?.Invoke();
+            if (context.performed)
+                jumpInput?.Invoke();
         }
 
         public void OnPrevious(InputAction.CallbackContext context)
         {
-            previousInput?.Invoke();
+            if (context.performed)
+                previousInput?.Invoke();
         }
 
         public void OnNext(InputAction.CallbackContext context)
         {
-            nextInput?.Invoke();
+            if (context.performed)
+                nextInput?.Invoke();
         }
 
         public void OnSprint(InputAction.CallbackContext context)
         {
-            sprintInput?.Invoke();
+            if (context.performed)
+                sprintInput?.Invoke();
         }
     }
 }
