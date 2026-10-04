@@ -7,7 +7,7 @@ namespace Core
     {
         [SerializeField] private LayerMask groundLayer;
         [SerializeField] private Vector2 groundCheckSize = new(1f, 0.1f);
-        [SerializeField] private Vector2 groundCheckOffset = new(0f, -10f);
+        [SerializeField] private Vector2 groundCheckOffset = new(0f, -0.5f);
 
         private Transform _transform;
 
