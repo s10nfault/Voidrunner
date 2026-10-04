@@ -37,8 +37,7 @@ namespace Core
         
         private void FixedUpdate()
         {
-            if (_moveDirection != 0f)
-                _rb.linearVelocity = new Vector2(_moveDirection * moveSpeed, _rb.linearVelocity.y);
+            _rb.linearVelocity = new Vector2(_moveDirection * moveSpeed, _rb.linearVelocity.y);
         }
         
         private void Jump()
