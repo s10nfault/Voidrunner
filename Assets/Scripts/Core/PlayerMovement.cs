@@ -17,6 +17,8 @@ namespace Core
         private GroundDetector _groundDetector;
         private float _moveDirection;
 
+        private bool _ownsMovementData;
+        
         private void Awake()
         {
             _rb = GetComponent<Rigidbody2D>();
@@ -25,7 +27,10 @@ namespace Core
             if (playerMovementData != null) return;
             
             Debug.LogWarning("PlayerMovementSO is not assigned in the inspector. It will create a new instance.");
+            
             playerMovementData = ScriptableObject.CreateInstance<PlayerMovementSO>();
+            
+            _ownsMovementData = true;
         }
 
         private void OnEnable()
@@ -38,6 +43,16 @@ namespace Core
         {
             moveInput.OnEvent -= Move;
             jumpInput.OnEvent -= Jump;
+            
+            _moveDirection = 0f;
+        }
+
+        private void OnDestroy()
+        {
+            if (_ownsMovementData && playerMovementData != null)
+            {
+                Destroy(playerMovementData);
+            }
         }
 
         private void FixedUpdate()
