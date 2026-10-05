@@ -6,6 +6,7 @@ namespace Core
 {
     public class PlayerControlListener : MonoBehaviour, InputSystem.InputSystem.IPlayerActions
     {
+        [Header("Events broadcasted")]
         [SerializeField] private Vector2EventSO moveInput;
         [SerializeField] private Vector2EventSO lookInput;
         [SerializeField] private VoidEventSO attackInput;

@@ -6,10 +6,12 @@ namespace Core
     [RequireComponent(typeof(Transform))]
     public class GroundDetector : MonoBehaviour
     {
+        [Header("Ground Check Settings")]
         [SerializeField] private LayerMask groundLayer;
         [SerializeField] private Vector2 groundCheckSize = new(1f, 0.1f);
         [SerializeField] private Vector2 groundCheckOffset = new(0f, -0.5f);
-
+        
+        [Header("Events broadcasted")]
         [SerializeField] private IsPlayerGroundedSO isPlayerGrounded;
 
         private void Awake()
