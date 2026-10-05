@@ -8,29 +8,39 @@ namespace Core
     [RequireComponent(typeof(GroundDetector))]
     public class PlayerMovement : MonoBehaviour
     {
+        [Header("Input Events")]
         [SerializeField] private Vector2EventSO moveInput;
         [SerializeField] private VoidEventSO jumpInput;
-
+        
+        [Header("Grounded State")]
+        [SerializeField] private IsPlayerGroundedSO isPlayerGrounded;
+        
+        [Header("Ground Detector")]
         [SerializeField] private PlayerMovementSO playerMovementData;
+        
 
         private Rigidbody2D _rb;
-        private GroundDetector _groundDetector;
         private float _moveDirection;
 
         private bool _ownsMovementData;
-        
+
         private void Awake()
         {
             _rb = GetComponent<Rigidbody2D>();
-            _groundDetector = GetComponent<GroundDetector>();
 
-            if (playerMovementData != null) return;
-            
-            Debug.LogWarning("PlayerMovementSO is not assigned in the inspector. It will create a new instance.");
-            
-            playerMovementData = ScriptableObject.CreateInstance<PlayerMovementSO>();
-            
-            _ownsMovementData = true;
+            if (isPlayerGrounded == null)
+            {
+                Debug.LogWarning("IsPlayerGroundedSO is not assigned in the inspector.");
+            }
+
+            if (playerMovementData == null)
+            {
+                Debug.LogWarning("PlayerMovementSO is not assigned in the inspector. It will create a new instance.");
+
+                playerMovementData = ScriptableObject.CreateInstance<PlayerMovementSO>();
+
+                _ownsMovementData = true;
+            }
         }
 
         private void OnEnable()
@@ -43,7 +53,7 @@ namespace Core
         {
             moveInput.OnEvent -= Move;
             jumpInput.OnEvent -= Jump;
-            
+
             _moveDirection = 0f;
         }
 
@@ -62,7 +72,7 @@ namespace Core
 
         private void Jump()
         {
-            if (_groundDetector.IsGrounded)
+            if (isPlayerGrounded && isPlayerGrounded.isGrounded)
                 _rb.AddForce(Vector2.up * playerMovementData.jumpForce, ForceMode2D.Impulse);
         }
 

@@ -1,3 +1,4 @@
+using Data.Player;
 using UnityEngine;
 
 namespace Core
@@ -9,11 +10,21 @@ namespace Core
         [SerializeField] private Vector2 groundCheckSize = new(1f, 0.1f);
         [SerializeField] private Vector2 groundCheckOffset = new(0f, -0.5f);
 
-        public bool IsGrounded { get; private set; }
+        [SerializeField] private IsPlayerGroundedSO isPlayerGrounded;
+
+        private void Awake()
+        {
+            if (!isPlayerGrounded)
+            {
+                Debug.LogWarning("IsPlayerGroundedSO is not assigned in the inspector.");
+            }
+        }
 
         private void FixedUpdate()
         {
-            IsGrounded = Physics2D.OverlapBox(
+            if (!isPlayerGrounded) return;
+
+            isPlayerGrounded.isGrounded = Physics2D.OverlapBox(
                 transform.position + (Vector3)groundCheckOffset,
                 groundCheckSize,
                 0f,
