@@ -542,6 +542,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Core.PlayerMovement
   moveInput: {fileID: 11400000, guid: 7316fddedb38649f88953124d6d6f2a8, type: 2}
   jumpInput: {fileID: 11400000, guid: a2fb1d6bb50a74192862acd54a3ee0e8, type: 2}
+  isPlayerGrounded: {fileID: 11400000, guid: 06ebc29e6755f4c4bbef0c0b91dd0a75, type: 2}
   playerMovementData: {fileID: 11400000, guid: 7fd1058d64f5b4a3bb5d28c9391a1513, type: 2}
 --- !u!114 &1003680503
 MonoBehaviour:
@@ -728,6 +729,7 @@ MonoBehaviour:
     m_Bits: 8
   groundCheckSize: {x: 0.9, y: 0.1}
   groundCheckOffset: {x: 0, y: -0.5}
+  isPlayerGrounded: {fileID: 11400000, guid: 06ebc29e6755f4c4bbef0c0b91dd0a75, type: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
