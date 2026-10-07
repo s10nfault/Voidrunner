@@ -12,13 +12,6 @@ namespace Core
         [Header("Broadcasted Events")]
         [SerializeField] private GameStateEventSO gameStateEvent;
         
-        private GameState _currentGameState;
-
-        private void Awake()
-        {
-            _currentGameState = GameState.Playing;
-        }
-        
         private void OnEnable()
         {
             gameOverEvent.OnEvent += OnGameOver;
@@ -33,14 +26,12 @@ namespace Core
         
         private void OnGameWin()
         {
-            _currentGameState = GameState.Victory;
-            gameStateEvent.Invoke(_currentGameState);
+            gameStateEvent.Invoke(GameState.Victory);
         }
 
         private void OnGameOver()
         {
-            _currentGameState = GameState.Defeat;
-            gameStateEvent.Invoke(_currentGameState);
+            gameStateEvent.Invoke(GameState.Defeat);
         }
     }
 }
