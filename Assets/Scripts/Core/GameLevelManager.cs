@@ -16,6 +16,8 @@ namespace Core
         [SerializeField] private VoidEventSO gameSavingEvent;
         [SerializeField] private VoidEventSO gameLoadingEvent;
         
+        private bool _isTransitioning;
+        
         private void OnEnable()
         {
             gameTransitionEvent.OnEvent += OnGameTransition;
@@ -28,6 +30,9 @@ namespace Core
         
         private void OnGameTransition()
         {
+            if (_isTransitioning) return;
+            _isTransitioning = true;
+
             gameSavingEvent.Invoke();
             gameLoadingEvent.Invoke();
             SceneManager.LoadSceneAsync(nextLevelName);
