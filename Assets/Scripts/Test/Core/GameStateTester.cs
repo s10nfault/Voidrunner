@@ -24,8 +24,8 @@ namespace Test.Core
         }
         
         
-        [ContextMenu("Test Wining")]
-        private void TestWining()
+        [ContextMenu("Test Winning")]
+        private void TestWinning()
         {
             gameWinEvent.Invoke();
         }
