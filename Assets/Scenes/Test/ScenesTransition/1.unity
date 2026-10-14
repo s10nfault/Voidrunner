@@ -119,6 +119,53 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &936564180
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 936564182}
+  - component: {fileID: 936564181}
+  m_Layer: 0
+  m_Name: Game Level Tester
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &936564181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 936564180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e2e60fcf1f64b34be7fa89718a8b87a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Test.Core.GameLevelTester
+  gameSavingEvent: {fileID: 11400000, guid: 6ac28e05dbb4d4c41a7d92d77661ca47, type: 2}
+  gameLoadingEvent: {fileID: 11400000, guid: 87b57b556e6a54ca981e4df5f8c2c37f, type: 2}
+  gameTransitionEvent: {fileID: 11400000, guid: 8dda4001359f745c8952546bbd1717b0, type: 2}
+--- !u!4 &936564182
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 936564180}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.76765, y: -0.62223, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &989342184
 GameObject:
   m_ObjectHideFlags: 0
@@ -429,3 +476,4 @@ SceneRoots:
   - {fileID: 1466503022230066625}
   - {fileID: 4801046137477195933}
   - {fileID: 1550448798}
+  - {fileID: 936564182}
