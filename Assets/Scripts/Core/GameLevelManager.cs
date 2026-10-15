@@ -31,24 +31,38 @@ namespace Core
         private void OnGameTransition()
         {
             if (_isTransitioning) return;
+
+            if (string.IsNullOrWhiteSpace(nextLevelName) ||
+                !Application.CanStreamedLevelBeLoaded(nextLevelName))
+            {
+                Debug.LogError(
+                    $"Cannot load scene '{nextLevelName}'. Check the scene configuration.",
+                    this);
+                return;
+            }
+
             _isTransitioning = true;
 
-            gameSavingEvent.Invoke();
-            gameLoadingEvent.Invoke();
             try
             {
-                SceneManager.LoadSceneAsync(nextLevelName);
+                gameSavingEvent.Invoke();
+                gameLoadingEvent.Invoke();
+
+                var operation = SceneManager.LoadSceneAsync(nextLevelName);
+
+                if (operation == null)
+                {
+                    _isTransitioning = false;
+                    Debug.LogError(
+                        $"Failed to start loading scene '{nextLevelName}'.",
+                        this);
+                }
             }
             catch (System.Exception e)
             {
-                Debug.LogError($"Failed to load scene '{nextLevelName}': {e.Message}");
-            }
-            finally
-            {
                 _isTransitioning = false;
+                Debug.LogException(e, this);
             }
-
-            
         }
     }
 }
