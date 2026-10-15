@@ -35,7 +35,20 @@ namespace Core
 
             gameSavingEvent.Invoke();
             gameLoadingEvent.Invoke();
-            SceneManager.LoadSceneAsync(nextLevelName);
+            try
+            {
+                SceneManager.LoadSceneAsync(nextLevelName);
+            }
+            catch (System.Exception e)
+            {
+                Debug.LogError($"Failed to load scene '{nextLevelName}': {e.Message}");
+            }
+            finally
+            {
+                _isTransitioning = false;
+            }
+
+            
         }
     }
 }
