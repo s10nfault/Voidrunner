@@ -45,7 +45,9 @@ namespace Core
         private void OnDamage(int damage)
         {
             if (playerCurrentHealthSO == null) return;
-
+            
+            if (playerCurrentHealthSO.currentHealth <= 0) return;
+            
             playerCurrentHealthSO.currentHealth -= damage;
             if (playerCurrentHealthSO.currentHealth > 0) return;
             
@@ -56,6 +58,8 @@ namespace Core
         private void OnDeath()
         {
             if (playerCurrentHealthSO == null) return;
+            
+            if (playerCurrentHealthSO.currentHealth <= 0) return;
 
             playerCurrentHealthSO.currentHealth = 0;
             gameOverEventSO?.Invoke();
