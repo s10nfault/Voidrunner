@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Data.Player
 {
-    [CreateAssetMenu(fileName = "PlayerMaxHealth", menuName = "Player/Health", order = 0)]
+    [CreateAssetMenu(fileName = "PlayerMaxHealth", menuName = "Player/MaxHealth", order = 0)]
     public class PlayerMaxHealthSO : ScriptableObject
     {
         [Min(0)]
