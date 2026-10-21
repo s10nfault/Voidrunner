@@ -23,22 +23,44 @@ namespace Core
                 Debug.LogError("PlayerHealthSO is not assigned in PlayerHealth.");
                 return;
             }
-            playerCurrentHealthSO.currentHealth = playerMaxHealthSO.maxHealth;
+            playerCurrentHealthSO.ResetHealth(playerMaxHealthSO.maxHealth);
+
+            if (gameOverEventSO != null) return;
+            
+            Debug.LogError("GameOverEventSO is not assigned in PlayerHealth.");
         }
 
         private void OnEnable()
         {
-            if (playerMaxHealthSO == null || playerCurrentHealthSO == null) return;
-            
+            if (playerDamageEventSO == null)
+            {
+                Debug.LogError("PlayerDamageEventSO is not assigned in PlayerHealth.");
+                return;
+            }
             playerDamageEventSO.OnEvent += (OnDamage);
+            
+            if (playerDeathEventSO == null)
+            {
+                Debug.LogError("PlayerDeathEventSO is not assigned in PlayerHealth.");
+                return;
+            }
             playerDeathEventSO.OnEvent += (OnDeath);
         }
 
         private void OnDisable()
         {
-            if (playerMaxHealthSO == null || playerCurrentHealthSO == null) return;
-            
+            if (playerDamageEventSO == null)
+            {
+                Debug.LogError("PlayerDamageEventSO is not assigned in PlayerHealth.");
+                return;
+            }
             playerDamageEventSO.OnEvent -= (OnDamage);
+
+            if (playerDeathEventSO == null)
+            {
+                Debug.LogError("PlayerDeathEventSO is not assigned in PlayerHealth.");
+                return;
+            }
             playerDeathEventSO.OnEvent -= (OnDeath);
         }
 
@@ -46,12 +68,8 @@ namespace Core
         {
             if (playerCurrentHealthSO == null) return;
             
-            if (playerCurrentHealthSO.currentHealth <= 0) return;
+            if (playerCurrentHealthSO.TakeDamage(damage)) return;
             
-            playerCurrentHealthSO.currentHealth -= damage;
-            if (playerCurrentHealthSO.currentHealth > 0) return;
-            
-            playerCurrentHealthSO.currentHealth = 0;
             gameOverEventSO?.Invoke();
         }
         
@@ -59,9 +77,10 @@ namespace Core
         {
             if (playerCurrentHealthSO == null) return;
             
-            if (playerCurrentHealthSO.currentHealth <= 0) return;
+            if (playerCurrentHealthSO.CurrentHealth <= 0) return;
 
-            playerCurrentHealthSO.currentHealth = 0;
+            playerCurrentHealthSO.Kill();
+            
             gameOverEventSO?.Invoke();
         }
     }
