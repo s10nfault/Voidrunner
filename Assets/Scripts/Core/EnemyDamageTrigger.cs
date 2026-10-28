@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace Core
 {
+    [RequireComponent(typeof(BoxCollider2D))]
     public class EnemyDamageTrigger : MonoBehaviour
     {
         [Header("Configuration")]
