@@ -468,7 +468,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d6f53bd7df8454bbef421e1f2e93dea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Core.OnPlayerExitBorderDetector
-  onPlayerExitBorder: {fileID: 11400000, guid: 9461482b68b454863a2cc8d43b28ac72, type: 2}
+  onPlayerExitBorder: {fileID: 11400000, guid: 5b60651601ba84c2ab782ae430a56b9c, type: 2}
 --- !u!61 &532735943
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -851,7 +851,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Core.PlayerHealth
   playerMaxHealthSO: {fileID: 11400000, guid: 06be263b8b4514e78949ac03ef6ac4f2, type: 2}
   playerCurrentHealthSO: {fileID: 11400000, guid: 098a9da301e274741b8c9e9d7c14ee58, type: 2}
-  gameOverEventSO: {fileID: 11400000, guid: 9d1b00d58dc194694a2625f1f182809b, type: 2}
+  gameOverEventSO: {fileID: 11400000, guid: 5b60651601ba84c2ab782ae430a56b9c, type: 2}
   playerDeathEventSO: {fileID: 11400000, guid: 5b60651601ba84c2ab782ae430a56b9c, type: 2}
   playerDamageEventSO: {fileID: 11400000, guid: fd61be64a8ead4c66aa66ef94116d66c, type: 2}
 --- !u!1 &1026619656
