@@ -16,6 +16,14 @@ namespace Core
         
         private float _lastDamageTime;
 
+        private void Awake()
+        {
+            if (playerDamageEventSO == null)
+            {
+                Debug.LogError("PlayerDamageEventSO is not assigned in the inspector.");
+            }
+        }
+
         private void Start()
         {
             _lastDamageTime = Time.time;
