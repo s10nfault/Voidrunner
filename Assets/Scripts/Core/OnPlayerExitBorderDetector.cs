@@ -8,12 +8,14 @@ namespace Core
     {
         [SerializeField] private VoidEventSO onPlayerExitBorder;
         
+        private bool _isPlayerExitBorder;
+        
         private void OnTriggerExit2D(Collider2D other)
         {
-            if (other.CompareTag("Player"))
-            {
-                onPlayerExitBorder?.Invoke();
-            }
+            if (_isPlayerExitBorder || !other.CompareTag("Player")) return;
+            
+            onPlayerExitBorder?.Invoke();
+            _isPlayerExitBorder = true;
         }
     }
 }
