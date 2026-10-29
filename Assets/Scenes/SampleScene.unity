@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 449293404}
   - component: {fileID: 449293403}
   m_Layer: 3
-  m_Name: Static Sprite
+  m_Name: Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -629,7 +629,7 @@ GameObject:
   - component: {fileID: 1003680502}
   - component: {fileID: 1003680509}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -851,7 +851,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Core.PlayerHealth
   playerMaxHealthSO: {fileID: 11400000, guid: 06be263b8b4514e78949ac03ef6ac4f2, type: 2}
   playerCurrentHealthSO: {fileID: 11400000, guid: 098a9da301e274741b8c9e9d7c14ee58, type: 2}
-  gameOverEventSO: {fileID: 11400000, guid: 5b60651601ba84c2ab782ae430a56b9c, type: 2}
+  gameOverEventSO: {fileID: 11400000, guid: 9d1b00d58dc194694a2625f1f182809b, type: 2}
   playerDeathEventSO: {fileID: 11400000, guid: 5b60651601ba84c2ab782ae430a56b9c, type: 2}
   playerDamageEventSO: {fileID: 11400000, guid: fd61be64a8ead4c66aa66ef94116d66c, type: 2}
 --- !u!1 &1026619656
@@ -1003,6 +1003,67 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.59, y: -0.45, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1047074218
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1047074221}
+  - component: {fileID: 1047074220}
+  - component: {fileID: 1047074219}
+  m_Layer: 0
+  m_Name: Game State Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1047074219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1047074218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9370c1c53754c7dadedae0bf9aeb8d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Test.Core.GameStateLogger
+  gameStateEvent: {fileID: 11400000, guid: 141cbc9dc6edd46c7a9cc0fa47b78244, type: 2}
+--- !u!114 &1047074220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1047074218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80784e14368b4ab89c0b2140634bd3f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Core.GameStateManager
+  gameOverEvent: {fileID: 11400000, guid: 9d1b00d58dc194694a2625f1f182809b, type: 2}
+  gameWinEvent: {fileID: 11400000, guid: 6efe9b7a8eece4fd891d281a14d55054, type: 2}
+  gameStateEvent: {fileID: 11400000, guid: 141cbc9dc6edd46c7a9cc0fa47b78244, type: 2}
+--- !u!4 &1047074221
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1047074218}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.03699, y: -0.30594, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1229,3 +1290,4 @@ SceneRoots:
   - {fileID: 532735941}
   - {fileID: 1026619660}
   - {fileID: 1695148171}
+  - {fileID: 1047074221}
