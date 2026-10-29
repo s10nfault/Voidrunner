@@ -16,7 +16,7 @@ namespace Data.Player
         public bool TakeDamage(int damage)
         {
             currentHealth -= damage;
-            if (currentHealth >= 0) return true;
+            if (currentHealth > 0) return true;
             
             currentHealth = 0;
             return false;
