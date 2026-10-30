@@ -26,7 +26,7 @@ namespace Core
 
         private void Start()
         {
-            _lastDamageTime = Time.time;
+            _lastDamageTime = Time.time - damageInterval;
         }
 
         private void OnTriggerEnter2D(Collider2D other)
