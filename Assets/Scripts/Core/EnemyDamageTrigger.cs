@@ -29,7 +29,7 @@ namespace Core
             _lastDamageTime = Time.time - damageInterval;
         }
 
-        private void OnTriggerEnter2D(Collider2D other)
+        private void OnTriggerStay2D(Collider2D other)
         {
             if (!(Time.time - _lastDamageTime >= damageInterval) || !other.CompareTag("Player")) return;
             
