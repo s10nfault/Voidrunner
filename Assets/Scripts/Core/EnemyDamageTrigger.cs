@@ -34,7 +34,7 @@ namespace Core
             if (!(Time.time - _lastDamageTime >= damageInterval) || !other.CompareTag("Player")) return;
             
             // Ensure that the damage amount is at least 1 to avoid negative or zero damage
-            playerDamageEventSO?.Invoke(damageAmount >= 0 ? damageAmount : 1);
+            playerDamageEventSO?.Invoke(damageAmount > 0 ? damageAmount : 1);
             _lastDamageTime = Time.time;
         }
     }
