@@ -12,17 +12,21 @@ namespace Core
         [SerializeField] private Vector2EventSO moveInput;
         [SerializeField] private VoidEventSO jumpInput;
         
+        [Header("Game State Event")]
+        [SerializeField] private GameStateEventSO gameStateEvent;
+        
         [Header("Grounded State")]
         [SerializeField] private IsPlayerGroundedSO isPlayerGrounded;
         
         [Header("Ground Detector")]
         [SerializeField] private PlayerMovementSO playerMovementData;
-        
 
         private Rigidbody2D _rb;
         private float _moveDirection;
 
         private bool _ownsMovementData;
+
+        private bool _canMove = true;
 
         private void Awake()
         {
@@ -45,16 +49,47 @@ namespace Core
 
         private void OnEnable()
         {
+            if (moveInput == null)
+            {
+                Debug.LogWarning("MoveInput event is not assigned in the inspector.");
+                return;
+            }
+
+            if (jumpInput == null)
+            {
+                Debug.LogWarning("JumpInput event is not assigned in the inspector.");
+                return;
+            }
+
+            if (gameStateEvent == null)
+            {
+                Debug.LogWarning("GameStateEvent event is not assigned in the inspector.");
+                return;
+            }
+
             moveInput.OnEvent += Move;
             jumpInput.OnEvent += Jump;
+            gameStateEvent.OnEvent += OnGameStateChange;
         }
 
         private void OnDisable()
         {
+            if (moveInput == null || jumpInput == null || gameStateEvent == null) return;
+            
             moveInput.OnEvent -= Move;
             jumpInput.OnEvent -= Jump;
+            gameStateEvent.OnEvent -= OnGameStateChange;
 
             _moveDirection = 0f;
+        }
+
+        private void OnGameStateChange(GameState obj)
+        {
+            if (obj != GameState.Playing)
+            {
+                _rb.linearVelocity = Vector2.zero;
+                _canMove = false;
+            }
         }
 
         private void OnDestroy()
@@ -67,11 +102,15 @@ namespace Core
 
         private void FixedUpdate()
         {
+            if (!_canMove) return;
+
             _rb.linearVelocity = new Vector2(_moveDirection * playerMovementData.moveSpeed, _rb.linearVelocity.y);
         }
 
         private void Jump()
         {
+            if (!_canMove) return;
+
             if (isPlayerGrounded && isPlayerGrounded.isGrounded)
                 _rb.AddForce(Vector2.up * playerMovementData.jumpForce, ForceMode2D.Impulse);
         }
