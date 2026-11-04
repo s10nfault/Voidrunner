@@ -46,5 +46,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Core.GameLevelManager
   nextLevelName: 
   gameTransitionEvent: {fileID: 11400000, guid: 8dda4001359f745c8952546bbd1717b0, type: 2}
+  gameRestartEvent: {fileID: 11400000, guid: 90b15d743ae3740b0b4c9357be204198, type: 2}
   gameSavingEvent: {fileID: 11400000, guid: 6ac28e05dbb4d4c41a7d92d77661ca47, type: 2}
   gameLoadingEvent: {fileID: 11400000, guid: 87b57b556e6a54ca981e4df5f8c2c37f, type: 2}
