@@ -11,6 +11,7 @@ namespace Core
         
         [Header("Received Events")]
         [SerializeField] private VoidEventSO gameTransitionEvent;
+        [SerializeField] private VoidEventSO gameRestartEvent;
         
         [Header("Broadcasted Events")]
         [SerializeField] private VoidEventSO gameSavingEvent;
@@ -21,11 +22,42 @@ namespace Core
         private void OnEnable()
         {
             gameTransitionEvent.OnEvent += OnGameTransition;
+            gameRestartEvent.OnEvent += OnGameRestart;
         }
 
         private void OnDisable()
         {
             gameTransitionEvent.OnEvent -= OnGameTransition;
+            gameRestartEvent.OnEvent -= OnGameRestart;
+        }
+        
+        private void OnGameRestart()
+        {
+            if (_isTransitioning) return;
+
+            _isTransitioning = true;
+
+            try
+            {
+                gameSavingEvent.Invoke();
+                gameLoadingEvent.Invoke();
+                
+                var currentSceneName = SceneManager.GetActiveScene().name;
+                var operation = SceneManager.LoadSceneAsync(currentSceneName);
+
+                if (operation == null)
+                {
+                    _isTransitioning = false;
+                    Debug.LogError(
+                        $"Failed to start loading scene '{currentSceneName}'.",
+                        this);
+                }
+            }
+            catch (System.Exception e)
+            {
+                _isTransitioning = false;
+                Debug.LogException(e, this);
+            }
         }
         
         private void OnGameTransition()
