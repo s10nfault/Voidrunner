@@ -85,10 +85,10 @@ namespace Core
 
         private void OnGameStateChange(GameState obj)
         {
-            if (obj != GameState.Playing)
+            _canMove = obj == GameState.Playing;
+            if (!_canMove)
             {
                 _rb.linearVelocity = Vector2.zero;
-                _canMove = false;
             }
         }
 
