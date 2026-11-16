@@ -99,6 +99,14 @@ namespace Core
             }
         }
 
+        private void OnDestroy()
+        {
+            if (playerMovementSO != null)
+            {
+                playerMovementSO.moveSpeed = _initialMoveSpeed;
+            }
+        }
+
         private void OnGameStateChanged(GameState obj)
         {
             playerMovementSO.moveSpeed = _initialMoveSpeed;
