@@ -36,5 +36,18 @@ namespace Core
 
             playerVelocitySO.velocity = _rigidbody2D.linearVelocity;
         }
+
+        private void OnGUI()
+        {
+            var style = new GUIStyle
+            {
+                fontSize = 28,
+                normal =
+                {
+                    textColor = Color.green
+                }
+            };
+            GUI.Label(new Rect(10, 10, 100, 20), playerVelocitySO.velocity.magnitude.ToString(), style);
+        }
     }
 }
