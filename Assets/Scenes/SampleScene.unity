@@ -475,59 +475,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &770579977 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1917406048047456620, guid: 908e44038f1104372831488b4aecbe39, type: 3}
-  m_PrefabInstance: {fileID: 4192970681912443271}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &770579986
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 770579977}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9dc131c081c94a6d89c199e5f6e62d42, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Core.PlayerVelocityBroadcaster
-  playerVelocitySO: {fileID: 11400000, guid: 7cbfe239067c444cab68949271d5f676, type: 2}
---- !u!1 &886259216 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8988396003742307871, guid: 31edaf1ac85db436ca970a58211f9643, type: 3}
-  m_PrefabInstance: {fileID: 6736958164303750880}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &886259221
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 886259216}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11351d210c6340329e2a9d96ae5f21f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Core.EnemyPatrol
-  leftBoundary: 2.67
-  rightBoundary: 4.32
-  speed: 2.7
-  gameStateEventSO: {fileID: 11400000, guid: 141cbc9dc6edd46c7a9cc0fa47b78244, type: 2}
---- !u!114 &886259226
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 886259216}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6cd808445f64107b4a8a4c9dd1642df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Core.EnemyDefeatTrigger
-  playerVelocitySO: {fileID: 11400000, guid: 7cbfe239067c444cab68949271d5f676, type: 2}
-  defeatedVelocity: 5
 --- !u!1001 &2744674791636096555
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -754,10 +701,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1917406048047456620, guid: 908e44038f1104372831488b4aecbe39, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 770579986}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 908e44038f1104372831488b4aecbe39, type: 3}
 --- !u!1001 &4506005871004180645
 PrefabInstance:
@@ -928,13 +872,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8988396003742307871, guid: 31edaf1ac85db436ca970a58211f9643, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 886259221}
-    - targetCorrespondingSourceObject: {fileID: 8988396003742307871, guid: 31edaf1ac85db436ca970a58211f9643, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 886259226}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 31edaf1ac85db436ca970a58211f9643, type: 3}
 --- !u!1001 &9029433568443715394
 PrefabInstance:
