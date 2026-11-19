@@ -1,9 +1,11 @@
+using System;
 using Data.Player;
 using UnityEngine;
 
 namespace Core
 {
-    public class EnemyDefeatTrigger : MonoBehaviour
+    [Obsolete("This class is deprecated. Please use EnemyTrigger instead.")]
+    class EnemyDefeatTrigger : MonoBehaviour
     {
         [Header("Player Velocity Data")]
         [SerializeField] private PlayerVelocitySO playerVelocitySO;
