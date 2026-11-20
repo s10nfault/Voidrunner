@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 6455658681417007018}
   - component: {fileID: 1493704562340176324}
   - component: {fileID: 5478086631825821505}
-  - component: {fileID: 4293054003023962089}
+  - component: {fileID: 4973478261324412445}
+  - component: {fileID: 1791541484154073758}
   m_Layer: 0
   m_Name: Enemy Damage Tester
   m_TagString: Untagged
@@ -139,7 +140,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &4293054003023962089
+--- !u!114 &4973478261324412445
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -148,9 +149,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 8988396003742307871}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e4f4acf7f594904b6abdff1d81937e7, type: 3}
+  m_Script: {fileID: 11500000, guid: 11351d210c6340329e2a9d96ae5f21f9, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Core.EnemyDamageTrigger
+  m_EditorClassIdentifier: Assembly-CSharp::Core.EnemyPatrol
+  leftBoundary: 2.67
+  rightBoundary: 4.32
+  speed: 2.7
+  gameStateEventSO: {fileID: 11400000, guid: 141cbc9dc6edd46c7a9cc0fa47b78244, type: 2}
+--- !u!114 &1791541484154073758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8988396003742307871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0fef6420d8a40f0a208a25dbab79ab2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Core.EnemyTrigger
   damageAmount: 1
   damageInterval: 1
   playerDamageEventSO: {fileID: 11400000, guid: fd61be64a8ead4c66aa66ef94116d66c, type: 2}
+  playerVelocitySO: {fileID: 11400000, guid: 7cbfe239067c444cab68949271d5f676, type: 2}
+  defeatedVelocity: 5

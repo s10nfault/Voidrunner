@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44789e1c06dc4ea1963e57d6c4e0086c, type: 3}
   m_Name: Player Max Health
   m_EditorClassIdentifier: Assembly-CSharp::Data.Player.PlayerMaxHealthSO
-  maxHealth: 1
+  maxHealth: 4
