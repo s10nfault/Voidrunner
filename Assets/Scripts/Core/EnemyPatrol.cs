@@ -64,6 +64,7 @@ namespace Core
             
             if (_currentPosition <= _fixedLeftBoundary || _currentPosition >= _fixedRightBoundary)
             {
+                _currentPosition = Mathf.Clamp(_currentPosition, _fixedLeftBoundary, _fixedRightBoundary);
                 _currentDirection *= -1;
             }
             
