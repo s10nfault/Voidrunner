@@ -1,9 +1,11 @@
+using System;
 using EventSO;
 using UnityEngine;
 
 namespace Core
 {
     [RequireComponent(typeof(BoxCollider2D))]
+    [Obsolete("This class is deprecated. Please use EnemyTrigger instead.")]
     public class EnemyDamageTrigger : MonoBehaviour
     {
         [Header("Configuration")]
