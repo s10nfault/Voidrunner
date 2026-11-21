@@ -1,47 +1,45 @@
 using Data.Player;
 using UnityEngine;
+using System.Collections.Generic;
+
 
 namespace Core
 {
-    [RequireComponent(typeof(Transform))]
+    [RequireComponent(typeof(Rigidbody2D))]
     public class GroundDetector : MonoBehaviour
     {
-        [Header("Ground Check Settings")]
         [SerializeField] private LayerMask groundLayer;
-        [SerializeField] private Vector2 groundCheckSize = new(1f, 0.1f);
-        [SerializeField] private Vector2 groundCheckOffset = new(0f, -0.5f);
-        
-        [Header("Events broadcasted")]
         [SerializeField] private IsPlayerGroundedSO isPlayerGrounded;
+
+        private Rigidbody2D _rb;
+        private ContactFilter2D _filter;
+        private readonly List<ContactPoint2D> _contacts = new(8);
 
         private void Awake()
         {
-            if (!isPlayerGrounded)
-            {
-                Debug.LogWarning("IsPlayerGroundedSO is not assigned in the inspector.");
-            }
+            _rb = GetComponent<Rigidbody2D>();
+            _filter = new ContactFilter2D();
+            _filter.SetLayerMask(groundLayer);
         }
 
         private void FixedUpdate()
         {
             if (!isPlayerGrounded) return;
 
-            isPlayerGrounded.isGrounded = Physics2D.OverlapBox(
-                transform.position + (Vector3)groundCheckOffset,
-                groundCheckSize,
-                0f,
-                groundLayer
-            );
-        }
+            _rb.GetContacts(_filter, _contacts);
 
-        private void OnDrawGizmos()
-        {
-            Gizmos.color = Color.red;
+            bool grounded = false;
 
-            Gizmos.DrawWireCube(
-                transform.position + (Vector3)groundCheckOffset,
-                groundCheckSize
-            );
+            foreach (var contact in _contacts)
+            {
+                if (contact.enabled && contact.normal.y > 0.5f)
+                {
+                    grounded = true;
+                    break;
+                }
+            }
+
+            isPlayerGrounded.isGrounded = grounded;
         }
     }
 }
