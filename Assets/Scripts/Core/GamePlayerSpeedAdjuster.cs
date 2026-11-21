@@ -8,16 +8,10 @@ namespace Core
     {
         [Header("Input Events")] [SerializeField]
         private PlayerCurrentHealthSO playerCurrentHealthSO;
-
-        [SerializeField] private PlayerMaxHealthSO playerMaxHealthSO;
+        
         [SerializeField] private PlayerMovementSO playerMovementSO;
         [SerializeField] private GameStateEventSO gameStateEventSO;
         [SerializeField] private IntEventSO playerDamageEventSO;
-
-        [Header("Speed Adjustment Settings")] [SerializeField]
-        private float speedMultiplier = 1.5f;
-
-        [SerializeField] private float maxSpeed = 10f;
 
         private float _initialMoveSpeed;
 
@@ -46,12 +40,6 @@ namespace Core
                 return;
             }
 
-            if (playerMaxHealthSO == null)
-            {
-                Debug.LogWarning("PlayerMaxHealthSO is not assigned in the inspector.");
-                return;
-            }
-
             if (playerMovementSO == null)
             {
                 Debug.LogWarning("PlayerMovementSO is not assigned in the inspector.");
@@ -76,14 +64,14 @@ namespace Core
 
         private void OnPlayerDamage(int damageAmount)
         {
-            playerMovementSO.moveSpeed *= speedMultiplier;
+            playerMovementSO.moveSpeed *= playerMovementSO.speedAdjustmentMultiplier;
             
             if (playerCurrentHealthSO.CurrentHealth <= 0)
             {
                 playerMovementSO.moveSpeed = _initialMoveSpeed;
             }
 
-            playerMovementSO.moveSpeed = Mathf.Min(playerMovementSO.moveSpeed, maxSpeed);
+            playerMovementSO.moveSpeed = Mathf.Min(playerMovementSO.moveSpeed, playerMovementSO.maxSpeed);
         }
 
         private void OnDisable()

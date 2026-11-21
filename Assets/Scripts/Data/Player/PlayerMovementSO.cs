@@ -7,5 +7,7 @@ namespace Data.Player
     {
         public float moveSpeed = 5f;
         public float jumpForce = 7f;
+        public float speedAdjustmentMultiplier = 1.5f;
+        public float maxSpeed = 10f;
     }
 }
