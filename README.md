@@ -33,7 +33,7 @@ Then open the project through Unity Hub.
 
 * [x] Set up the initial project structure
 * [x] Implement the core gameplay loop
-* [ ] Implement core game systems
+* [x] Implement core game systems
 * [ ] Build the first playable level
 * [ ] Implement UI and menus
 * [ ] Add multilingual support
