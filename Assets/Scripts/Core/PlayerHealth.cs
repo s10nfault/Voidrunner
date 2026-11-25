@@ -6,8 +6,8 @@ namespace Core
 {
     public class PlayerHealth : MonoBehaviour
     {
-        [Header("Player Health Settings")]
-        [SerializeField] private PlayerMaxHealthSO playerMaxHealthSO;
+        // [Header("Player Health Settings")]
+        // [SerializeField] private PlayerMaxHealthSO playerMaxHealthSO;
         [Header("Player Health Data")]
         [SerializeField] private PlayerCurrentHealthSO playerCurrentHealthSO;
         [Header("Events broadcasted")]
@@ -18,12 +18,11 @@ namespace Core
         
         private void Awake()
         {
-            if (playerMaxHealthSO == null || playerCurrentHealthSO == null)
+            if (playerCurrentHealthSO == null)
             {
-                Debug.LogError("PlayerHealthSO is not assigned in PlayerHealth.");
+                Debug.LogError("PlayerCurrentHealthSO is not assigned in PlayerHealth.");
                 return;
             }
-            playerCurrentHealthSO.ResetHealth(playerMaxHealthSO.maxHealth);
 
             if (gameOverEventSO != null) return;
             
