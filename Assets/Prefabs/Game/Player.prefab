@@ -89,7 +89,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.4438857, g: 0.69435674, b: 0.990566, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -207,8 +207,6 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
-  groundCheckSize: {x: 0.9, y: 0.1}
-  groundCheckOffset: {x: 0, y: -0.5}
   isPlayerGrounded: {fileID: 11400000, guid: 06ebc29e6755f4c4bbef0c0b91dd0a75, type: 2}
 --- !u!114 &5521341126453650308
 MonoBehaviour:
@@ -239,7 +237,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c02265b048c74cf6955beac14c3de91e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Core.PlayerHealth
-  playerMaxHealthSO: {fileID: 11400000, guid: 06be263b8b4514e78949ac03ef6ac4f2, type: 2}
   playerCurrentHealthSO: {fileID: 11400000, guid: 098a9da301e274741b8c9e9d7c14ee58, type: 2}
   gameOverEventSO: {fileID: 11400000, guid: 9d1b00d58dc194694a2625f1f182809b, type: 2}
   playerDeathEventSO: {fileID: 11400000, guid: 5b60651601ba84c2ab782ae430a56b9c, type: 2}

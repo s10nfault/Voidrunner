@@ -169,8 +169,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Core.EnemyTrigger
   damageAmount: 1
-  damageInterval: 1
+  damageInterval: 0.5
   playerDamageEventSO: {fileID: 11400000, guid: fd61be64a8ead4c66aa66ef94116d66c, type: 2}
   playerVelocitySO: {fileID: 11400000, guid: 7cbfe239067c444cab68949271d5f676, type: 2}
-  defeatedVelocity: 5
+  defeatedVelocity: 6
   gameStateEventSO: {fileID: 11400000, guid: 141cbc9dc6edd46c7a9cc0fa47b78244, type: 2}
